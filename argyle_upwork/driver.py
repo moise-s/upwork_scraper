@@ -53,13 +53,42 @@ class ChromeDriver:
             options=options, service=Service(ChromeDriverManager().install())
         )
 
-    def get_driver(self) -> webdriver.Chrome:
-        """
-        Returns the configured Chrome webdriver instance.
+    def go_to(self, url: str) -> None:
+        self._driver.get(url)
 
-        Returns
-        -------
-        webdriver
-            Instance of the configured Chrome webdriver.
-        """
-        return self.driver
+    def enter_text(self, element_content: str, text: str) -> None:
+        self._wait_until_loaded(
+            EC.visibility_of_element_located((By.ID, element_content))
+        )
+        element = self._get_element(By.ID, element_content)
+        element.send_keys(text)
+
+    def click_element(self, element_content: str) -> None:
+        self._wait_until_loaded(
+            EC.element_to_be_clickable((By.ID, element_content))
+        )
+        element = self._get_element(By.ID, element_content)
+        element.click()
+
+    def _wait_until_loaded(self, condition: Any) -> None:
+        try:
+            WebDriverWait(self._driver, self.timeout).until(condition)
+        except TimeoutException:
+            logger.error("Timed out waiting for condition.")
+
+    def _get_element(
+        self, element_type, element_content: str
+    ) -> webdriver.Chrome:
+        return self._driver.find_element(By.ID, element_content)
+
+    def is_logged(self) -> bool:
+        try:
+            WebDriverWait(self._driver, self.timeout).until(
+                EC.presence_of_element_located(
+                    (By.ID, "nav-notifications-label")
+                )
+            )
+            return True
+        except TimeoutException:
+            return False
+
