@@ -92,3 +92,7 @@ class ChromeDriver:
         except TimeoutException:
             return False
 
+
+class DriverManager:
+    def __init__(self, driver: ChromeDriver):
+        self.driver = driver
