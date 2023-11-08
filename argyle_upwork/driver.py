@@ -1,6 +1,14 @@
+from typing import Any
+
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+
+from argyle_upwork.logger import logger
 
 
 class ChromeDriver:
@@ -8,7 +16,9 @@ class ChromeDriver:
     A class to manage the Selenium webdriver for Google Chrome.
     """
 
-    def __init__(self, headless: bool = True):
+    timeout: int = 10
+
+    def __init__(self, headless: bool = False):
         """
         Initializes the Driver class with specified parameters.
 
@@ -18,7 +28,7 @@ class ChromeDriver:
             Starts the browser in headless mode if True, by default True.
         """
         self.headless = headless
-        self.driver = self._create_driver()
+        self._driver = self._create_driver()
 
     def _create_driver(self) -> webdriver.Chrome:
         """
@@ -34,16 +44,17 @@ class ChromeDriver:
             "prefs",
             {
                 "profile.default_content_settings.popups": 0,
-                # "download.default_directory": self.dir_download,
-                # "download.directory_upgrade": True,
             },
         )
         options.add_argument("--window-size=1920x1080")
         options.add_argument("--no-sandbox")
+        options.add_argument("--incognito")
         options.add_argument("--disable-gpu")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument(
-            "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+            "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 "
+            "Safari/537.36"
         )
 
         if self.headless:
