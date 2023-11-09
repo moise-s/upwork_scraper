@@ -12,33 +12,17 @@ from argyle_upwork.logger import logger
 
 
 class ChromeDriver:
-    """
-    A class to manage the Selenium webdriver for Google Chrome.
-    """
+    """A class to manage the Selenium webdriver for Google Chrome."""
 
     timeout: int = 10
 
     def __init__(self, headless: bool = False):
-        """
-        Initializes the Driver class with specified parameters.
-
-        Parameters
-        ----------
-        headless : bool, optional
-            Starts the browser in headless mode if True, by default True.
-        """
+        """Initialize the ChromeDriver with the specified configuration."""
         self.headless = headless
         self._driver = self._create_driver()
 
     def _create_driver(self) -> webdriver.Chrome:
-        """
-        Creates and configures the Chrome webdriver instance.
-
-        Returns
-        -------
-        webdriver
-            Instance of the configured Chrome webdriver.
-        """
+        """Create a new instance of the Chrome webdriver with the specified options."""
         options = webdriver.ChromeOptions()
         options.add_experimental_option(
             "prefs",
@@ -65,9 +49,11 @@ class ChromeDriver:
         )
 
     def go_to(self, url: str) -> None:
+        """Navigate the ChromeDriver to the specified URL."""
         self._driver.get(url)
 
     def enter_text(self, element_content: str, text: str) -> None:
+        """Enter text into the specified element."""
         self._wait_until_loaded(
             EC.visibility_of_element_located((By.ID, element_content))
         )
@@ -75,6 +61,7 @@ class ChromeDriver:
         element.send_keys(text)
 
     def click_element(self, element_content: str) -> None:
+        """Click the specified element."""
         self._wait_until_loaded(
             EC.element_to_be_clickable((By.ID, element_content))
         )
@@ -82,6 +69,7 @@ class ChromeDriver:
         element.click()
 
     def _wait_until_loaded(self, condition: Any) -> None:
+        """Wait until the specified condition is loaded."""
         try:
             WebDriverWait(self._driver, self.timeout).until(condition)
         except TimeoutException:
@@ -90,9 +78,11 @@ class ChromeDriver:
     def _get_element(
         self, element_type, element_content: str
     ) -> webdriver.Chrome:
+        """Get the specified element."""
         return self._driver.find_element(By.ID, element_content)
 
     def is_logged(self) -> bool:
+        """Check if the user is logged in."""
         try:
             WebDriverWait(self._driver, self.timeout).until(
                 EC.presence_of_element_located(
@@ -121,5 +111,7 @@ class ChromeDriver:
 
 
 class DriverManager:
+    """Initialize the DriverManager with the specified ChromeDriver instance."""
+
     def __init__(self, driver: ChromeDriver):
         self.driver = driver
