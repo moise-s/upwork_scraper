@@ -103,6 +103,22 @@ class ChromeDriver:
         except TimeoutException:
             return False
 
+    def is_at_homepage(self) -> bool:
+        """Check if the ChromeDriver is at the homepage."""
+        try:
+            WebDriverWait(self._driver, self.timeout).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "[data-test='announcements']")
+                )
+            )
+            return True
+        except TimeoutException:
+            return False
+
+    def get_page_source(self):
+        """Get the page source of the current webpage."""
+        return self._driver.page_source
+
 
 class DriverManager:
     def __init__(self, driver: ChromeDriver):
