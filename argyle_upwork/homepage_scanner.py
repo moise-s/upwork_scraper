@@ -21,14 +21,14 @@ class HomepageScanner(DriverManager):
     def scan_homepage(self):
         """Scan the Upwork homepage for job sections."""
         if not self._is_at_homepage():
-            raise Exception("User is not logged in.")
+            self.driver.go_to_url(self.driver.homepage_url)
         logger.info("Homepage loaded successfully.")
 
         self._scan_page_source()
-        logger.info("Job sections extracted successfully.")
+        logger.info("Page source extracted successfully.")
 
         self._scan_job_sections_from_page_source()
-        logger.info("Job sections parsed successfully.")
+        logger.info("Job sections extracted successfully.")
 
         self._scan_job_section_data()
         logger.info("Job sections parsed successfully.")
@@ -60,7 +60,7 @@ class HomepageScanner(DriverManager):
         """Scan data from the job sections."""
         for section in self.job_sections_source_code:
             # fmt: off
-            data = {}
+            data: dict = {}
             data["title"] = self._get_text_or_none(section.find("a", class_="up-n-link"))
             data["description"] = self._get_text_or_none(section.find("span", {"data-test": "job-description-text"}))
             data["proposals"] = self._get_text_or_none(section.find("strong", {"data-test": "proposals"}))
@@ -81,6 +81,6 @@ class HomepageScanner(DriverManager):
 
     def _store_job_sections_locally(self):
         """Store the job sections locally as a JSON file."""
-        file_path = Path("data", f"{self.datetime_now}.json")
+        file_path = Path("data", f"homepage-{self.datetime_now}.json")
         with file_path.open("w") as file:
             json.dump(self.job_sections, file, indent=4)
