@@ -19,7 +19,7 @@ class LoginHandler(DriverManager):
 
     def login(self):
         """Perform the login process."""
-        self.driver.go_to(self.portal_link)
+        self.driver.go_to_url(self.portal_link)
 
         logger.info("Login page loaded successfully.")
         self._enter_username()
@@ -33,17 +33,17 @@ class LoginHandler(DriverManager):
 
     def _enter_username(self):
         """Enter the username during the login process."""
-        self.driver.enter_text("login_username", self.username)
+        self.driver.enter_text_when_loaded("login_username", self.username)
         self.driver.click_element("login_password_continue")
 
     def _enter_password(self):
         """Enter the password during the login process."""
-        self.driver.enter_text("login_password", self.password)
+        self.driver.enter_text_when_loaded("login_password", self.password)
         self.driver.click_element("login_control_continue")
 
     def _enter_secret_answer(self):
         """Enter the secret answer during the login process if needed."""
-        self.driver.enter_text("login_answer", self.secret_answer)
+        self.driver.enter_text_when_loaded("login_answer", self.secret_answer)
         self.driver.click_element("login_control_continue")
 
     def _is_logged(self):
