@@ -1,5 +1,4 @@
 import json
-import time
 from pathlib import Path
 import re
 from bs4 import BeautifulSoup
