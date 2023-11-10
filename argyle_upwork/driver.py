@@ -15,8 +15,14 @@ class ChromeDriver:
     """A class to manage the Selenium webdriver for Google Chrome."""
 
     timeout: int = 10
+    timeout_for_checking_presence: int = 3
+    homepage_url: str = "https://www.upwork.com/nx/find-work/best-matches"
+    contact_info_url: str = (
+        "https://www.upwork.com/freelancers/settings/contactInfo"
+    )
+    profile_page_url: str = "https://www.upwork.com/freelancers/~01b5ffe1df46c24d0e"  # correct method to obtain this url
 
-    def __init__(self, headless: bool = False):
+    def __init__(self, headless: bool = True):
         """Initialize the ChromeDriver with the specified configuration."""
         self.headless = headless
         self._driver = self._create_driver()
@@ -48,16 +54,16 @@ class ChromeDriver:
             options=options, service=Service(ChromeDriverManager().install())
         )
 
-    def go_to(self, url: str) -> None:
+    def go_to_url(self, url: str) -> None:
         """Navigate the ChromeDriver to the specified URL."""
         self._driver.get(url)
 
-    def enter_text(self, element_content: str, text: str) -> None:
-        """Enter text into the specified element."""
+    def enter_text_when_loaded(self, element_content: str, text: str) -> None:
+        """Enter text after element is loaded."""
         self._wait_until_loaded(
-            EC.visibility_of_element_located((By.ID, element_content))
+            EC.element_to_be_clickable((By.ID, element_content))
         )
-        element = self._get_element(By.ID, element_content)
+        element = self._get_element_by_id(element_content)
         element.send_keys(text)
 
     def click_element(self, element_content: str) -> None:
@@ -65,7 +71,7 @@ class ChromeDriver:
         self._wait_until_loaded(
             EC.element_to_be_clickable((By.ID, element_content))
         )
-        element = self._get_element(By.ID, element_content)
+        element = self._get_element_by_id(element_content)
         element.click()
 
     def _wait_until_loaded(self, condition: Any) -> None:
@@ -75,11 +81,13 @@ class ChromeDriver:
         except TimeoutException:
             logger.error("Timed out waiting for condition.")
 
-    def _get_element(
-        self, element_type, element_content: str
-    ) -> webdriver.Chrome:
+    def _get_element_by_id(self, element_content: str) -> webdriver.Chrome:
         """Get the specified element."""
         return self._driver.find_element(By.ID, element_content)
+
+    def _get_element_by_xpath(self, element_content):
+        """Get the specified element."""
+        return self._driver.find_element(By.XPATH, element_content)
 
     def is_logged(self) -> bool:
         """Check if the user is logged in."""
@@ -97,6 +105,9 @@ class ChromeDriver:
         """Check if the ChromeDriver is at the homepage."""
         try:
             WebDriverWait(self._driver, self.timeout).until(
+                EC.url_to_be(self.homepage_url)
+            )
+            WebDriverWait(self._driver, self.timeout).until(
                 EC.presence_of_element_located(
                     (By.CSS_SELECTOR, "[data-test='announcements']")
                 )
@@ -105,9 +116,54 @@ class ChromeDriver:
         except TimeoutException:
             return False
 
+    def is_at_contact_info_page(self) -> bool:
+        """Check if the ChromeDriver is at the contact info page."""
+        try:
+            WebDriverWait(self._driver, self.timeout).until(
+                EC.url_to_be(self.contact_info_url)
+            )
+            WebDriverWait(self._driver, self.timeout).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "[data-test='settings-nav']")
+                )
+            )
+            return True
+        except TimeoutException:
+            return False
+
+    def is_at_profile_page(self) -> bool:
+        """Check if the ChromeDriver is at the profile page."""
+        try:
+            WebDriverWait(self._driver, self.timeout).until(
+                EC.url_contains("www.upwork.com/freelancers/~")
+            )
+            return True
+        except TimeoutException:
+            return False
+
     def get_page_source(self):
         """Get the page source of the current webpage."""
         return self._driver.page_source
+
+    def is_element_present(self, element_content: str) -> bool:
+        """Check if the element is present."""
+        try:
+            WebDriverWait(
+                self._driver, self.timeout_for_checking_presence
+            ).until(EC.presence_of_element_located((By.ID, element_content)))
+            return True
+        except TimeoutException:
+            return False
+
+    def is_element_present_by_xpath(self, element_content: str) -> bool:
+        """Check if the element is present."""
+        try:
+            WebDriverWait(self._driver, self.timeout).until(
+                EC.presence_of_element_located((By.XPATH, element_content))
+            )
+            return True
+        except TimeoutException:
+            return False
 
 
 class DriverManager:
