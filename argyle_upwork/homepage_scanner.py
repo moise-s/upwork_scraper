@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
-from argyle_upwork.models.job_section import JobSection
+from argyle_upwork.models.job import JobSection
 
 
 class HomepageScanner(DriverManager):
