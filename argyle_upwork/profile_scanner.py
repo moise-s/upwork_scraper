@@ -40,7 +40,7 @@ class ProfileScanner(DriverManager):
             profile_page=self.profile_section,
         )
 
-        file_path = Path("data", f"profile-page-{self.datetime_now}.json")
+        file_path = Path("data", f"profilepage-{self.datetime_now}.json")
         with file_path.open("w") as file:
             json.dump(self.profile.dict(), file, indent=4)
 
