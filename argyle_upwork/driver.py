@@ -1,5 +1,6 @@
 """A module for managing the Webdriver."""
 
+import os
 from typing import Any
 
 from selenium import webdriver
@@ -17,18 +18,18 @@ from argyle_upwork.logger import logger
 class ChromeDriver:
     """A class to manage the Selenium webdriver for Google Chrome."""
 
-    timeout: int = 10
-    timeout_for_checking_presence: int = 3
-    homepage_url: str = "https://www.upwork.com/nx/find-work/best-matches"
-    contact_info_url: str = (
-        "https://www.upwork.com/freelancers/settings/contactInfo"
-    )
-    profile_page_url: str = "https://www.upwork.com/freelancers/~01b5ffe1df46c24d0e"  # correct method to obtain this url
-
     def __init__(self, headless: bool = True):
         """Initialize the ChromeDriver with the specified configuration."""
+        self.timeout: int = 10
+        self.timeout_for_checking_presence: int = 3
         self.headless = headless
         self._driver = self._create_driver()
+        self.login_url: str = "https://www.upwork.com/ab/account-security/login"
+        self.homepage_url: str = "https://www.upwork.com/nx/find-work/best-matches"
+        self.contact_info_url: str = (
+            "https://www.upwork.com/freelancers/settings/contactInfo"
+        )
+        self.profile_page_url: str = "https://www.upwork.com/freelancers/~01b5ffe1df46c24d0e"  # correct method to obtain this url
 
     def _create_driver(self) -> webdriver.Chrome:
         """Create a new instance of the Chrome webdriver with the specified options."""
@@ -63,17 +64,13 @@ class ChromeDriver:
 
     def enter_text_when_loaded(self, element_content: str, text: str) -> None:
         """Enter text after element is loaded."""
-        self._wait_until_loaded(
-            EC.element_to_be_clickable((By.ID, element_content))
-        )
+        self._wait_until_loaded(EC.element_to_be_clickable((By.ID, element_content)))
         element = self._get_element_by_id(element_content)
         element.send_keys(text)
 
     def click_element(self, element_content: str) -> None:
         """Click the specified element."""
-        self._wait_until_loaded(
-            EC.element_to_be_clickable((By.ID, element_content))
-        )
+        self._wait_until_loaded(EC.element_to_be_clickable((By.ID, element_content)))
         element = self._get_element_by_id(element_content)
         element.click()
 
@@ -96,9 +93,7 @@ class ChromeDriver:
         """Check if the user is logged in."""
         try:
             WebDriverWait(self._driver, self.timeout).until(
-                EC.presence_of_element_located(
-                    (By.ID, "nav-notifications-label")
-                )
+                EC.presence_of_element_located((By.ID, "nav-notifications-label"))
             )
             return True
         except TimeoutException:
@@ -151,9 +146,9 @@ class ChromeDriver:
     def is_element_present(self, element_content: str) -> bool:
         """Check if the element is present."""
         try:
-            WebDriverWait(
-                self._driver, self.timeout_for_checking_presence
-            ).until(EC.presence_of_element_located((By.ID, element_content)))
+            WebDriverWait(self._driver, self.timeout_for_checking_presence).until(
+                EC.presence_of_element_located((By.ID, element_content))
+            )
             return True
         except TimeoutException:
             return False
@@ -175,3 +170,6 @@ class DriverManager:
     def __init__(self, driver: ChromeDriver):
         """Initialize the DriverManager with the specified ChromeDriver instance."""
         self.driver = driver
+        self.username: str = os.getenv("USERNAME")
+        self.password: str = os.getenv("PASSWORD")
+        self.secret_answer: str = os.getenv("SECRET_ANSWER")
