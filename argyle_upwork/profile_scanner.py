@@ -47,7 +47,8 @@ class ProfileScanner(DriverManager):
     def _scan_profile_page(self) -> None:
         """Scan the Upwork Profile page."""
         if not self._is_at_profile_page():
-            self.driver.go_to_url(self.driver.profile_page_url)
+            profile_url = self.driver.get_profile_link("/freelancers/")
+            self.driver.go_to_url(profile_url)
         logger.info("Profile page loaded successfully.")
 
         self._scan_page_source()
