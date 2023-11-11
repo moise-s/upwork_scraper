@@ -1,7 +1,7 @@
 """Model for profile objects."""
 
 import re
-from typing import List, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, field_validator
 
@@ -30,11 +30,11 @@ def convert_empty_string_to_none(value: str) -> Union[str, None]:
 class ProfilePage(BaseModel):
     """A Pydantic BaseModel representing a profile page."""
 
-    title: str
-    hourly_rate: str
-    description: str
-    skills: List[str]
-    employment_history: List[dict]
+    title: Optional[str]
+    hourly_rate: Optional[str]
+    description: Optional[str]
+    skills: Optional[List[str]]
+    employment_history: Optional[List[dict]]
 
     @field_validator("hourly_rate")
     def clean_hourly_rate(cls, value):
@@ -74,13 +74,13 @@ class AccountSection(BaseModel):
 class LocationSection(BaseModel):
     """A Pydantic BaseModel representing a location section."""
 
-    address_street: str
-    address_street_2: str
-    address_city: str
-    address_state: str
-    address_zip: str
-    address_country: str
-    phone: str
+    address_street: Optional[str]
+    address_street_2: Optional[str]
+    address_city: Optional[str]
+    address_state: Optional[str]
+    address_zip: Optional[str]
+    address_country: Optional[str]
+    phone: Optional[str]
 
     @field_validator("phone")
     def strip_whitespace(cls, value):
