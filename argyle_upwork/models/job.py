@@ -41,8 +41,7 @@ def validate_posted_on(value: Union[str, None]) -> Union[str, None]:
             unit = time_units[match.groups()[1]]
             if unit in ("days", "minutes", "hours"):
                 return (
-                    datetime.now()
-                    - timedelta(**{unit: int(match.groups()[0])})
+                    datetime.now() - timedelta(**{unit: int(match.groups()[0])})
                 ).isoformat()
     return value
 

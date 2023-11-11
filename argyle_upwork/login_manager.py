@@ -11,17 +11,9 @@ class LoginHandler(DriverManager):
         """Initialize the LoginHandler with Chromedriver."""
         super().__init__(driver)
 
-        # get this variables in a safer way
-        self.portal_link: str = (
-            "https://www.upwork.com/ab/account-security/login"
-        )
-        self.username: str = "recruitment+scanners+task@argyle.com"
-        self.password: str = "ArgyleAwesome!@"
-        self.secret_answer: str = "Jimmy"
-
-    def login(self):
+    def login(self) -> None:
         """Perform the login process."""
-        self.driver.go_to_url(self.portal_link)
+        self.driver.go_to_url(self.driver.login_url)
 
         logger.info("Login page loaded successfully.")
         self._enter_username()
@@ -33,21 +25,21 @@ class LoginHandler(DriverManager):
             logger.info("Secret answer page loaded successfully.")
             self._enter_secret_answer()
 
-    def _enter_username(self):
+    def _enter_username(self) -> None:
         """Enter the username during the login process."""
         self.driver.enter_text_when_loaded("login_username", self.username)
         self.driver.click_element("login_password_continue")
 
-    def _enter_password(self):
+    def _enter_password(self) -> None:
         """Enter the password during the login process."""
         self.driver.enter_text_when_loaded("login_password", self.password)
         self.driver.click_element("login_control_continue")
 
-    def _enter_secret_answer(self):
+    def _enter_secret_answer(self) -> None:
         """Enter the secret answer during the login process if needed."""
         self.driver.enter_text_when_loaded("login_answer", self.secret_answer)
         self.driver.click_element("login_control_continue")
 
-    def _is_logged(self):
+    def _is_logged(self) -> bool:
         """Check if the user is logged in."""
         return self.driver.is_logged()

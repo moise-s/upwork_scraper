@@ -10,12 +10,8 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
-from argyle_upwork.models.profile import (
-    AccountSection,
-    LocationSection,
-    Profile,
-    ProfilePage,
-)
+from argyle_upwork.models.profile import (AccountSection, LocationSection,
+                                          Profile, ProfilePage)
 
 
 class ProfileScanner(DriverManager):
@@ -24,8 +20,6 @@ class ProfileScanner(DriverManager):
     def __init__(self, driver: ChromeDriver):
         """Initialize the ProfileScanner with Chromedriver."""
         super().__init__(driver)
-        self.secret_answer: str = "Jimmy"
-        self.password: str = "ArgyleAwesome!@"
         self.datetime_now: str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.contact_section: AccountSection
         self.location_section: LocationSection
@@ -85,9 +79,7 @@ class ProfileScanner(DriverManager):
         """Extract the employment history from the profile page."""
         employment_history_section: Optional[
             Union[Tag, NavigableString]
-        ] = self.page_soup.find(
-            "h3", text=re.compile(r"\s*Employment history\s*")
-        )
+        ] = self.page_soup.find("h3", text=re.compile(r"\s*Employment history\s*"))
         if employment_history_section is None:
             return []
         employment_history_list = []
@@ -168,9 +160,7 @@ class ProfileScanner(DriverManager):
 
     def _enter_secret_answer(self) -> None:
         """Enter the secret answer during the login process if needed."""
-        self.driver.enter_text_when_loaded(
-            "deviceAuth_answer", self.secret_answer
-        )
+        self.driver.enter_text_when_loaded("deviceAuth_answer", self.secret_answer)
         self.driver.click_element("control_save")
 
     def _need_to_input_password(self) -> bool:
@@ -179,9 +169,7 @@ class ProfileScanner(DriverManager):
 
     def _enter_password(self) -> None:
         """Enter the password during the login process."""
-        self.driver.enter_text_when_loaded(
-            "sensitiveZone_password", self.password
-        )
+        self.driver.enter_text_when_loaded("sensitiveZone_password", self.password)
         self.driver.click_element("control_continue")
 
     def _scan_page_source(self) -> None:

@@ -6,9 +6,7 @@ from typing import List, Union
 from pydantic import BaseModel, field_validator
 
 
-def clean_string(
-    value: Union[str, None], *remove_chars: str
-) -> Union[str, None]:
+def clean_string(value: Union[str, None], *remove_chars: str) -> Union[str, None]:
     """Remove specified characters and strip whitespaces from a string."""
     if isinstance(value, str):
         for char in remove_chars:
