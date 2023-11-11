@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "argyle-upwork"
+version = "0.1.0"
+description = ""
+authors = ["Moisés do Nascimento <moises.d.nasci@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+beautifulsoup4 = "4.12.2"
+pydantic = "2.4.2"
+rich = "13.6.0"
+selenium = "4.15.2"
+python-dotenv = "^1.0.0"
+webdriver-manager = "^4.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
