@@ -10,8 +10,12 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
-from argyle_upwork.models.profile import (AccountSection, LocationSection,
-                                          Profile, ProfilePage)
+from argyle_upwork.models.profile import (
+    AccountSection,
+    LocationSection,
+    Profile,
+    ProfilePage,
+)
 
 
 class ProfileScanner(DriverManager):

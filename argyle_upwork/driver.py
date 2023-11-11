@@ -73,14 +73,16 @@ class ChromeDriver:
         self._wait_until_loaded(EC.element_to_be_clickable((By.ID, element_content)))
         element = self._get_element_by_id(element_content)
         element.click()
-    
+
     def get_profile_link(self, pattern: str) -> str:
         """Click the specified element."""
-        href_pattern = re.compile(f'{pattern}')
+        href_pattern = re.compile(f"{pattern}")
         element = WebDriverWait(self._driver, self.timeout).until(
-            EC.presence_of_element_located((By.XPATH, f'//a[contains(@href, "{href_pattern.pattern}")]'))
+            EC.presence_of_element_located(
+                (By.XPATH, f'//a[contains(@href, "{href_pattern.pattern}")]')
+            )
         )
-        return element.get_attribute('href')
+        return element.get_attribute("href")
 
     def _wait_until_loaded(self, condition: Any) -> None:
         """Wait until the specified condition is loaded."""
