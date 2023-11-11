@@ -1,3 +1,5 @@
+"""A module for handling login."""
+
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
 

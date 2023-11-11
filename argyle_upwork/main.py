@@ -1,3 +1,5 @@
+"""Main module for the Argyle Upwork project."""
+
 from argyle_upwork.driver import ChromeDriver
 from argyle_upwork.homepage_scanner import HomepageScanner
 from argyle_upwork.logger import logger
@@ -6,6 +8,7 @@ from argyle_upwork.profile_scanner import ProfileScanner
 
 
 def handler():
+    """Run the main handler."""
     chrome_driver = ChromeDriver()
 
     login_manager = LoginHandler(chrome_driver)

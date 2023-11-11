@@ -1,3 +1,5 @@
+"""A module for scanning the Upwork homepage for job sections."""
+
 import json
 from datetime import datetime
 from pathlib import Path
@@ -18,7 +20,7 @@ class HomepageScanner(DriverManager):
         self.job_sections: list[dict] = []
         self.datetime_now: str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    def scan_homepage(self):
+    def scan_homepage(self) -> None:
         """Scan the Upwork homepage for job sections."""
         if not self._is_at_homepage():
             self.driver.go_to_url(self.driver.homepage_url)
@@ -40,11 +42,11 @@ class HomepageScanner(DriverManager):
         """Check if the driver is at the homepage."""
         return self.driver.is_at_homepage()
 
-    def _scan_page_source(self):
+    def _scan_page_source(self) -> None:
         """Scan the page source of the homepage."""
         self.page_source = self.driver.get_page_source()
 
-    def _scan_job_sections_from_page_source(self):
+    def _scan_job_sections_from_page_source(self) -> None:
         """Scan job sections from the page source."""
         soup = BeautifulSoup(self.page_source, "html.parser")
         self.job_sections_source_code = soup.find_all(
@@ -56,7 +58,7 @@ class HomepageScanner(DriverManager):
         """Return the text if it exists, else return None."""
         return element.text.strip() if element else None
 
-    def _scan_job_section_data(self):
+    def _scan_job_section_data(self) -> None:
         """Scan data from the job sections."""
         for section in self.job_sections_source_code:
             # fmt: off
@@ -79,7 +81,7 @@ class HomepageScanner(DriverManager):
             job_section = JobSection(**data)
             self.job_sections.append(job_section.dict())
 
-    def _store_job_sections_locally(self):
+    def _store_job_sections_locally(self) -> None:
         """Store the job sections locally as a JSON file."""
         file_path = Path("data", f"homepage-{self.datetime_now}.json")
         with file_path.open("w") as file:

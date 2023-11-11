@@ -1,9 +1,12 @@
+"""A module for managing the Webdriver."""
+
 from typing import Any
 
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
@@ -81,7 +84,7 @@ class ChromeDriver:
         except TimeoutException:
             logger.error("Timed out waiting for condition.")
 
-    def _get_element_by_id(self, element_content: str) -> webdriver.Chrome:
+    def _get_element_by_id(self, element_content: str) -> WebElement:
         """Get the specified element."""
         return self._driver.find_element(By.ID, element_content)
 
@@ -167,7 +170,8 @@ class ChromeDriver:
 
 
 class DriverManager:
-    """Initialize the DriverManager with the specified ChromeDriver instance."""
+    """Class to handle same Driver within scanning classes."""
 
     def __init__(self, driver: ChromeDriver):
+        """Initialize the DriverManager with the specified ChromeDriver instance."""
         self.driver = driver

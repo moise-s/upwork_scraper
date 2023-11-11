@@ -1,3 +1,5 @@
+"""Logger to be used within the package."""
+
 import logging
 
 from rich.logging import RichHandler
