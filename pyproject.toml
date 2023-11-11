@@ -13,6 +13,7 @@ rich = "13.6.0"
 selenium = "4.15.2"
 python-dotenv = "^1.0.0"
 webdriver-manager = "^4.0.1"
+pytest = "^7.4.3"
 
 
 [build-system]
