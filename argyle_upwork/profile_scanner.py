@@ -1,5 +1,4 @@
-"""A module for scanning the Upwork profile pages."""
-
+import asyncio
 import json
 import re
 from datetime import datetime
@@ -10,12 +9,8 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
-from argyle_upwork.models.profile import (
-    AccountSection,
-    LocationSection,
-    Profile,
-    ProfilePage,
-)
+from argyle_upwork.models.profile import (AccountSection, LocationSection,
+                                          Profile, ProfilePage)
 
 
 class ProfileScanner(DriverManager):
@@ -30,13 +25,13 @@ class ProfileScanner(DriverManager):
         self.profile_section: ProfilePage
         self.profile: Profile
 
-    def scan_profile(self) -> None:
+    async def scan_profile(self) -> None:
         """Scan the Upwork Profile page."""
-        self._scan_contact_info_page()
-        self._scan_profile_page()
-        self._store_profile_info_locally()
+        await self._scan_contact_info_page()
+        await self._scan_profile_page()
+        await self._store_profile_info_locally()
 
-    def _store_profile_info_locally(self) -> None:
+    async def _store_profile_info_locally(self) -> None:
         """Store the profile info locally as a json file."""
         self.profile = Profile(
             account_session=self.contact_section,
@@ -45,42 +40,44 @@ class ProfileScanner(DriverManager):
         )
 
         file_path = Path("data", f"profilepage-{self.datetime_now}.json")
-        with file_path.open("w") as file:
-            json.dump(self.profile.dict(), file, indent=4)
+        async def write_to_file():
+            with file_path.open("w") as file:
+                json.dump(self.profile.dict(), file, indent=4)
+        await asyncio.ensure_future(write_to_file())
 
-    def _scan_profile_page(self) -> None:
+    async def _scan_profile_page(self) -> None:
         """Scan the Upwork Profile page."""
-        if not self._is_at_profile_page():
+        if not await self._is_at_profile_page():
             profile_url = self.driver.get_profile_link("/freelancers/")
             self.driver.go_to_url(profile_url)
         logger.info("Profile page loaded successfully.")
 
-        self._scan_page_source()
+        await self._scan_page_source()
         logger.info("Page source extracted successfully.")
 
-        self._scan_page_soup_from_source()
+        await self._scan_page_soup_from_source()
         logger.info("Soup object extracted successfully.")
 
-        self._scan_profile_data()
+        await self._scan_profile_data()
         logger.info("Profile sections parsed successfully.")
 
-    def _get_text_or_none(self, element) -> str:
+    async def _get_text_or_none(self, element) -> str:
         """Return the text if it exists, else return None."""
         return element.text.strip() if element else None
 
-    def _scan_profile_data(self) -> None:
+    async def _scan_profile_data(self) -> None:
         """Scan data from the profile page."""
         data: dict = {}
         # fmt: off
-        data["title"] = self._get_text_or_none(self.page_soup.find("h2", {'class': ['mb-0', 'h4']}))
-        data["hourly_rate"] = self._get_text_or_none(self.page_soup.find("h3", {'class': ['my-6x', 'h5']}))
-        data["description"] = self._get_text_or_none(self.page_soup.find("div", class_="air3-line-clamp"))
-        data["skills"] = [skill.text for skill in self.page_soup.find_all("span", class_="air3-token")]
-        data["employment_history"] = self._extract_employment_history()
+        data["title"] = await self._get_text_or_none(self.page_soup.find("h2", {'class': ['mb-0', 'h4']}))
+        data["hourly_rate"] = await self._get_text_or_none(self.page_soup.find("h3", {'class': ['my-6x', 'h5']}))
+        data["description"] = await self._get_text_or_none(self.page_soup.find("div", class_="air3-line-clamp"))
+        data["skills"] = await asyncio.to_thread(lambda: [skill.text for skill in self.page_soup.find_all("span", class_="air3-token")])
+        data["employment_history"] = await self._extract_employment_history()
         # fmt: on
         self.profile_section = ProfilePage(**data)
 
-    def _extract_employment_history(self) -> list:
+    async def _extract_employment_history(self) -> list:
         """Extract the employment history from the profile page."""
         employment_history_section: Optional[
             Union[Tag, NavigableString]
@@ -99,92 +96,94 @@ class ProfileScanner(DriverManager):
                 "div", class_="air3-card-section px-0"
             )
             for entry in employment_sections:
-                title = self._get_text_or_none(entry.find("h4", class_="my-0"))
-                period = self._get_text_or_none(
+                title = await self._get_text_or_none(entry.find("h4", class_="my-0"))
+                period = await self._get_text_or_none(
                     entry.find("div", class_="mt-3x text-light-on-inverse")
                 )
                 employment_entry = {"title": title, "period": period}
                 employment_history_list.append(employment_entry)
         return employment_history_list
 
-    def _is_at_profile_page(self) -> bool:
+    async def _is_at_profile_page(self) -> bool:
         """Check if the driver is at the profile page."""
         return self.driver.is_at_profile_page()
 
-    def _scan_contact_info_page(self) -> None:
+    async def _scan_contact_info_page(self) -> None:
         """Scan the Upwork Profile Contact sub-page."""
-        if not self._is_at_contact_info_page():
+        if not await self._is_at_contact_info_page():
             self.driver.go_to_url(self.driver.contact_info_url)
 
-        if self._need_to_input_secret_answer():
-            self._enter_secret_answer()
+        if await self._need_to_input_secret_answer():
+            await self._enter_secret_answer()
             logger.info("Secret answer page loaded successfully.")
 
-        if self._need_to_input_password():
-            self._enter_password()
+        if await self._need_to_input_password():
+            await self._enter_password()
 
         logger.info("Contact-info page loaded successfully.")
 
-        self._scan_page_source()
+        await self._scan_page_source()
         logger.info("Page source extracted successfully.")
 
-        self._scan_page_soup_from_source()
+        await self._scan_page_soup_from_source()
         logger.info("Soup object extracted successfully.")
 
-        self._scan_account_info_data()
+        await self._scan_account_info_data()
         logger.info("Account sections parsed successfully.")
 
-        self._scan_location_info_data()
+        await self._scan_location_info_data()
         logger.info("Location sections parsed successfully.")
 
-    def _scan_location_info_data(self) -> None:
+    async def _scan_location_info_data(self) -> None:
         data: dict = {}
         # fmt: off
-        data["address_street"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressStreet"}))
-        data["address_street_2"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressStreet2"}))
-        data["address_city"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressCity"}))
-        data["address_state"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressState"}))
-        data["address_zip"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressZip"}))
-        data["address_country"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressCountry"}))
-        data["phone"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "phone"}))
+        data["address_street"] = await self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressStreet"}))
+        data["address_street_2"] = await self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressStreet2"}))
+        data["address_city"] = await self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressCity"}))
+        data["address_state"] = await self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressState"}))
+        data["address_zip"] = await self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressZip"}))
+        data["address_country"] = await self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressCountry"}))
+        data["phone"] = await self._get_text_or_none(self.page_soup.find("div", {"data-test": "phone"}))
         # fmt: on
         self.location_section = LocationSection(**data)
 
-    def _scan_account_info_data(self) -> None:
+    async def _scan_account_info_data(self) -> None:
         data: dict = {}
         # fmt: off
-        data["user_id"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userId"}))
-        data["user_name"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userName"}))
-        data["user_masked_email"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userEmail"}))
+        data["user_id"] = await self._get_text_or_none(self.page_soup.find("div", {"data-test": "userId"}))
+        data["user_name"] = await self._get_text_or_none(self.page_soup.find("div", {"data-test": "userName"}))
+        data["user_masked_email"] = await self._get_text_or_none(self.page_soup.find("div", {"data-test": "userEmail"}))
         # fmt: on
         self.contact_section = AccountSection(**data)
 
-    def _need_to_input_secret_answer(self) -> bool:
+    async def _need_to_input_secret_answer(self) -> bool:
         """Check if the page required to input the secret answer."""
         return self.driver.is_element_present("deviceAuth_answer")
 
-    def _enter_secret_answer(self) -> None:
+    async def _enter_secret_answer(self) -> None:
         """Enter the secret answer during the login process if needed."""
         self.driver.enter_text_when_loaded("deviceAuth_answer", self.secret_answer)
         self.driver.click_element("control_save")
 
-    def _need_to_input_password(self) -> bool:
+    async def _need_to_input_password(self) -> bool:
         """Check if the page required to input the password."""
         return self.driver.is_element_present("reenterPassword")
 
-    def _enter_password(self) -> None:
+    async def _enter_password(self) -> None:
         """Enter the password during the login process."""
-        self.driver.enter_text_when_loaded("sensitiveZone_password", self.password)
-        self.driver.click_element("control_continue")
+        await self.driver.enter_text_when_loaded(
+            "sensitiveZone_password", self.password
+        )
+        await self.driver.click_element("control_continue")
 
-    def _scan_page_source(self) -> None:
+    async def _scan_page_source(self) -> None:
         """Scan the page source of the homepage."""
         self.page_source = self.driver.get_page_source()
 
-    def _is_at_contact_info_page(self) -> bool:
+    async def _is_at_contact_info_page(self) -> bool:
         """Check if the driver is at the contact info page."""
         return self.driver.is_at_contact_info_page()
 
-    def _scan_page_soup_from_source(self) -> None:
+    async def _scan_page_soup_from_source(self) -> None:
         """Scan the page soup from the page source."""
         self.page_soup = BeautifulSoup(self.page_source, "html.parser")

@@ -1,5 +1,7 @@
 """Main module for the Argyle Upwork project."""
 
+import asyncio
+
 from dotenv import load_dotenv
 
 from argyle_upwork.driver import ChromeDriver
@@ -9,22 +11,21 @@ from argyle_upwork.login_manager import LoginHandler
 from argyle_upwork.profile_scanner import ProfileScanner
 
 
-def handler():
-    """Run the main handler."""
+async def handler():
     load_dotenv()
-    chrome_driver = ChromeDriver()
 
+    chrome_driver = ChromeDriver(headless=False)
     login_manager = LoginHandler(chrome_driver)
     login_manager.login()
     logger.info("Login successful.")
 
     homepage_scanner = HomepageScanner(chrome_driver)
-    homepage_scanner.scan_homepage()
-    logger.info("Homepage scanned successfully.")
-
     profile_scanner = ProfileScanner(chrome_driver)
-    profile_scanner.scan_profile()
-    logger.info("Profile scanned successfully.")
 
+    homepage_task = asyncio.create_task(homepage_scanner.scan_homepage())
+    profile_task = asyncio.create_task(profile_scanner.scan_profile())
 
-handler()
+    await asyncio.gather(profile_task, homepage_task)
+    logger.info("Homepage and Profile scanned successfully.")
+
+asyncio.run(handler())
