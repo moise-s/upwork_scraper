@@ -116,7 +116,13 @@ class ChromeDriver:
                 EC.url_to_be(self.homepage_url)
             )
             WebDriverWait(self._driver, self.timeout).until(
-                lambda driver: len(driver.find_elements(By.CLASS_NAME, "up-card-section.up-card-list-section.up-card-hover")) >= 30
+                lambda driver: len(
+                    driver.find_elements(
+                        By.CLASS_NAME,
+                        "up-card-section.up-card-list-section.up-card-hover",
+                    )
+                )
+                >= 30
             )
             return True
         except TimeoutException:

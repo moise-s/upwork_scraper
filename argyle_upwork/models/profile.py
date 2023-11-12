@@ -73,7 +73,7 @@ class AccountSection(BaseModel):
         """Strip leading and trailing whitespaces and collapse consecutive spaces."""
         return strip_whitespace(value)
 
-    @model_validator(mode='before')
+    @model_validator(mode="before")
     def process_full_name(cls, values):
         """Process full_name and populate first_name and last_name."""
         full_name = values.get("full_name")
