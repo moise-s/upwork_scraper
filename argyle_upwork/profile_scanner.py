@@ -10,12 +10,8 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
-from argyle_upwork.models.profile import (
-    AccountSection,
-    LocationSection,
-    Profile,
-    ProfilePage,
-)
+from argyle_upwork.models.profile import (AccountSection, LocationSection,
+                                          Profile, ProfilePage)
 
 
 class ProfileScanner(DriverManager):
@@ -72,7 +68,7 @@ class ProfileScanner(DriverManager):
         """Scan data from the profile page."""
         data: dict = {}
         # fmt: off
-        data["title"] = self._get_text_or_none(self.page_soup.find("h2", {'class': ['mb-0', 'h4']}))
+        data["job_title"] = self._get_text_or_none(self.page_soup.find("h2", {'class': ['mb-0', 'h4']}))
         data["hourly_rate"] = self._get_text_or_none(self.page_soup.find("h3", {'class': ['my-6x', 'h5']}))
         data["description"] = self._get_text_or_none(self.page_soup.find("div", class_="air3-line-clamp"))
         data["skills"] = [skill.text for skill in self.page_soup.find_all("span", class_="air3-token")]
@@ -140,22 +136,22 @@ class ProfileScanner(DriverManager):
     def _scan_location_info_data(self) -> None:
         data: dict = {}
         # fmt: off
-        data["address_street"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressStreet"}))
-        data["address_street_2"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressStreet2"}))
-        data["address_city"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressCity"}))
-        data["address_state"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressState"}))
-        data["address_zip"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressZip"}))
-        data["address_country"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressCountry"}))
-        data["phone"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "phone"}))
+        data["line_1"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressStreet"}))
+        data["line_2"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressStreet2"}))
+        data["city"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressCity"}))
+        data["state"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressState"}))
+        data["postal_code"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressZip"}))
+        data["country"] = self._get_text_or_none(self.page_soup.find("span", {"data-test": "addressCountry"}))
+        data["phone_number"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "phone"}))
         # fmt: on
         self.location_section = LocationSection(**data)
 
     def _scan_account_info_data(self) -> None:
         data: dict = {}
         # fmt: off
-        data["user_id"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userId"}))
-        data["user_name"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userName"}))
-        data["user_masked_email"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userEmail"}))
+        data["id"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userId"}))
+        data["full_name"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userName"}))
+        data["masked_email"] = self._get_text_or_none(self.page_soup.find("div", {"data-test": "userEmail"}))
         # fmt: on
         self.contact_section = AccountSection(**data)
 

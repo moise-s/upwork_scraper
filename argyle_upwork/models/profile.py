@@ -3,7 +3,8 @@
 import re
 from typing import List, Optional, Union
 
-from pydantic import BaseModel, field_validator
+import pycountry
+from pydantic import BaseModel, field_validator, model_validator
 
 
 def clean_string(value: Union[str, None], *remove_chars: str) -> Union[str, None]:
@@ -30,7 +31,7 @@ def convert_empty_string_to_none(value: str) -> Union[str, None]:
 class ProfilePage(BaseModel):
     """A Pydantic BaseModel representing a profile page."""
 
-    title: Optional[str]
+    job_title: Optional[str]
     hourly_rate: Optional[str]
     description: Optional[str]
     skills: Optional[List[str]]
@@ -61,41 +62,62 @@ class ProfilePage(BaseModel):
 class AccountSection(BaseModel):
     """A Pydantic BaseModel representing an account section."""
 
-    user_id: str
-    user_name: str
-    user_masked_email: str
+    full_name: str
+    first_name: Optional[str]
+    last_name: Optional[str]
+    id: str
+    masked_email: str
 
-    @field_validator("user_name")
+    @field_validator("full_name")
     def strip_whitespace(cls, value):
         """Strip leading and trailing whitespaces and collapse consecutive spaces."""
         return strip_whitespace(value)
+
+    @model_validator(mode='before')
+    def process_full_name(cls, values):
+        """Process full_name and populate first_name and last_name."""
+        full_name = values.get("full_name")
+        if full_name:
+            names = full_name.split()
+            values["first_name"] = names[0] if names else None
+            values["last_name"] = names[-1] if len(names) > 1 else None
+        return values
 
 
 class LocationSection(BaseModel):
     """A Pydantic BaseModel representing a location section."""
 
-    address_street: Optional[str]
-    address_street_2: Optional[str]
-    address_city: Optional[str]
-    address_state: Optional[str]
-    address_zip: Optional[str]
-    address_country: Optional[str]
-    phone: Optional[str]
+    line_1: Optional[str]
+    line_2: Optional[str]
+    city: Optional[str]
+    state: Optional[str]
+    postal_code: Optional[str]
+    country: Optional[str]
+    phone_number: Optional[str]
 
-    @field_validator("phone")
-    def strip_whitespace(cls, value):
+    @field_validator("phone_number")
+    def validate_phone_number(cls, value):
         """Strip leading and trailing whitespaces and collapse consecutive spaces."""
         return "+" + "".join(c for c in value if c.isdigit())
 
-    @field_validator("address_zip")
+    @field_validator("postal_code")
     def convert_empty_string_to_none(cls, value):
         """Convert empty string to None."""
         return convert_empty_string_to_none(value)
 
-    @field_validator("address_state")
+    @field_validator("state")
     def clean_address_state(cls, value):
         """Remove leading and trailing whitespaces and a comma."""
         return clean_string(value, ",").strip()
+
+    @field_validator("country")
+    def validate_country(cls, value):
+        """Validate country and convert it to ISO 3166-1 alpha-2 format."""
+        try:
+            country_code = pycountry.countries.get(name=value).alpha_2
+            return country_code
+        except AttributeError:
+            return None
 
 
 class Profile(BaseModel):
