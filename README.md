@@ -24,19 +24,32 @@ The Argyle - Upwork project is a web scanning tool designed for extracting Job a
 
 ## 📦 Features
 
-- **Login Management:** `login_manager` handles the login process on Upwork using inheritance from DriverManager, promoting code reuse and abstraction. This ensures a clean separation of concerns, with the login logic residing in a dedicated class.
+### 1. Login Management (`login_manager`)
 
-- **Homepage Scanner:** The `homepage_scanner` module scans the Upwork homepage for job sections. It utilizes BeautifulSoup for HTML parsing and extracts relevant data from job sections.
+The `login_manager` module handles the login process on Upwork, utilizing inheritance from `DriverManager`. This promotes code reuse and abstraction, ensuring a clean separation of concerns. The login logic resides in a dedicated class for easy maintenance.
 
-- **Profile Scanner:** The `profile_scanner` module is responsible for scanning Upwork profile pages. It collects data from both the profile and contact info pages, including employment history.
+### 2. Homepage Scanner (`homepage_scanner`)
 
-- **Data Models:** The `argyle_upwork.models` package contains Pydantic models for representing job sections (`JobSection`) and profile information (`ProfilePage`, `AccountSection`, `LocationSection`, `Profile`). These models include validation and cleaning methods for data consistency.
+The `homepage_scanner` module scans the Upwork homepage for job sections. It employs BeautifulSoup for HTML parsing and extracts relevant data from job sections.
 
-- **Data storing locally:** Both `Jobs` and `Profile` data are stored locally in JSON format after its validation, in directory `data`. The names of the files saved are:
-```
-homepage-{date in format (%Y-%m-%d %H:%M:%S)}.json
-profilepage-{date in format (%Y-%m-%d %H:%M:%S)}.json
-```
+### 3. Profile Scanner (`profile_scanner`)
+
+The `profile_scanner` module is responsible for scanning Upwork profile pages. It collects comprehensive data from both the profile and contact info pages, including employment history.
+
+### 4. Data Models (`argyle_upwork.models`)
+
+The `argyle_upwork.models` package contains Pydantic models for representing job sections (`JobSection`) and profile information (`ProfilePage`, `AccountSection`, `LocationSection`, `Profile`). These models include validation and cleaning methods for data consistency.
+
+### 5. Data Storage Locally
+
+Both job and profile data are stored locally in JSON format after validation. The data is saved in the `data` directory with filenames following the format:
+
+- `homepage-{date in format (%Y-%m-%d %H:%M:%S)}.json`
+- `profilepage-{date in format (%Y-%m-%d %H:%M:%S)}.json`
+
+### 6. Tests
+
+The `argyle_upwork.tests` package includes tests designed to assert the functionality of crucial driver and model components. These tests ensure the proper evaluation of key functions, covering areas such as driver behavior, model validation, and overall project integrity.
 
 ---
 
@@ -129,6 +142,14 @@ Create a `.env` file with the necessary environment variables (`ARGYLE_USERNAME`
 python argyle_upwork/main.py
 ```
 
+## 🧪 Running Tests
+
+To run the tests, execute the following command in the project directory:
+
+```sh
+pytest argyle_upwork/tests
+```
+
 ---
 
 
@@ -136,11 +157,12 @@ python argyle_upwork/main.py
 
 1) Handle login with backup credentials if login process is not successful (Handle retry);
 2) Scan other subpages in Home Page: Most Recent and Saved Jobs;
-3) Get variable from a cloud environment (for production);
-4) Store objects in a Database;
-5) User-Agent rotation while scanning;
-6) Using a pool of proxies to avoid IP ban;
-7) Implement a mechanism to control the number of concurrent requests;
-8) Use of asynchronous libs to improve scan time and concurrent scrape through different pages simultaneously.
+4) Getting more information from Profile page (hours per week, languages, education etc...)
+5) Get variable from a cloud environment (for production);
+6) Store objects in a Database;
+7) User-Agent rotation while scanning;
+8) Using a pool of proxies to avoid IP ban;
+9) Implement a mechanism to control the number of concurrent requests;
+10) Use of asynchronous libs to improve scan time and concurrent scrape through different pages simultaneously.
 
 ---
