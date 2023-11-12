@@ -75,7 +75,7 @@ class HomepageScanner(DriverManager):
             data["client_spendings"] = self._get_text_or_none(section.find("span", {"data-test": "formatted-amount"}))
             data["skills"] = [skill.text for skill in section.find_all("a", class_="up-skill-badge text-muted")]
             data["payment_verified"] = bool(section.find("div", class_="up-icon text-complimentary"))
-            data["link"] = section.find("a", class_="up-n-link").get("href")
+            data["suffix_link"] = section.find("a", class_="up-n-link").get("href")
             # fmt: on
 
             job_section = JobSection(**data)

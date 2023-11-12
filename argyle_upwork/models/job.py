@@ -14,6 +14,13 @@ def clean_numeric_string(value: Union[str, None]) -> Optional[str]:
     return None
 
 
+def strip_whitespace(value: Union[str, None]) -> Union[str, None]:
+    """Strip leading and trailing whitespaces and collapse consecutive spaces."""
+    if isinstance(value, str):
+        return " ".join(value.split())
+    return value
+
+
 def validate_client_spendings(value: Union[str, None]) -> Union[str, None]:
     """Validate the client spendings field."""
     if isinstance(value, str):
@@ -50,7 +57,7 @@ class JobSection(BaseModel):
     """A Pydantic BaseModel representing a job section."""
 
     title: str
-    link: str
+    suffix_link: str
     description: str
     skills: list
     proposals: str
@@ -77,3 +84,8 @@ class JobSection(BaseModel):
     def validate_posted_on(cls, v):
         """Validate the posted_on field."""
         return validate_posted_on(v)
+
+    @field_validator("description")
+    def strip_whitespace(cls, value):
+        """Strip leading and trailing whitespaces and collapse consecutive spaces."""
+        return strip_whitespace(value)
