@@ -1,0 +1,606 @@
+[
+    {
+        "title": "Make a simple chat component using the New OpenAi ( Assistant Retrieval ) + Vercel Ai SDK",
+        "suffix_link": "/jobs/Make-simple-chat-component-using-the-New-OpenAi-Assistant-Retrieval-Vercel-SDK_~01f4df30af90fa3b3a/?referrer_url_path=find_work_home",
+        "description": "I'm a Nextjs developer and I'm looking for a developer to make me the following : 1- create a page that have a chat UI ( you will not make it from scratch, you will just copy the chat UI from here : https://ui.shadcn.com/themes ) ( screenshot-z1) 2- make the chat to use the NEW OpenAI Assistant Knowledge Retrieval 3- make the stream of the messages using Vercel AI SDK 4- make the Assistant Knowledge Retrieval on a Website ( use Cheerio library), what I want is that below the chat UI in the page there will be a component for uploading the knowledge for the Assistant , and it will look like in Chatbase.co : where there will be an input field the user will enter there website domain name and it will output all the domain pages in a form of list and each one contain a check box , so when the user select the pages then it will click a save button and this pages selected will be converted into \" something \" and uploaded to OpenAI so it can be used by the assistant using the file id . 5- you will be required to explain to me the process of your work and how things work together here is a set of video tutorials and websites that will help you : 1- https://platform.openai.com/docs/assistants/tools/knowledge-retrieval 2- https://sdk.vercel.ai/docs/api-reference/use-chat 3- https://www.youtube.com/watch?v=ClfyQNkTeUc 4- https://www.youtube.com/watch?v=VfKD5NL4buY",
+        "skills": [
+            "JavaScript",
+            "TypeScript",
+            "nextjs"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T10:00:00.557525",
+        "country": "Egypt",
+        "budget": "10",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Entry level",
+        "payment_verified": true,
+        "client_spendings": "5"
+    },
+    {
+        "title": "Socks5 Navigation NodeJS Library Update with Chromium",
+        "suffix_link": "/jobs/Socks5-Navigation-NodeJS-Library-Update-with-Chromium_~0188990a4d4ca700eb/?referrer_url_path=find_work_home",
+        "description": "I have an ElectronJS app that we use playnight for web browsing using Chromium, but we are having difficulty browsing the web using socks5 with outgoing IPv6. The problem we are having is that Socks5 with Authentication is not supported in Chromium, as well as most other mainstream browsers. To get around this, we found an out of date Node.js library that creates a basic HTTP proxy, and routes all of the traffic through the SOCKS5 proxy. This works great, unfortunately, it will not pass any IPv6 traffic though, which is a requirement for us. This is outside of the expertise of our team, so we are looking for someone who can update this library. I will pass on the github link of the library we are using that needs updating to those interested in direct.",
+        "skills": [
+            "Node.js",
+            "API"
+        ],
+        "proposals": "5 to 10",
+        "posted_on": "2023-11-13T13:45:00.564451",
+        "country": "Brazil",
+        "budget": null,
+        "job_type": "Hourly: $30-$50",
+        "duration": "Less than 1 month, Less than 30 hrs/week",
+        "experience": "Expert",
+        "payment_verified": false,
+        "client_spendings": "500"
+    },
+    {
+        "title": "Need a developer who knows how to work with COSMOS",
+        "suffix_link": "/jobs/Need-developer-who-knows-how-work-with-COSMOS_~0166bbfb9551f9d58f/?referrer_url_path=find_work_home",
+        "description": "I need a developer who knows how to work with COSMOS Blockchain The task will be to write a script that can automate the monitoring of transactions in the blockchain with notifications in Telegram, also need to ensure full security of the project. I will be glad to communicate in detail with the performer.",
+        "skills": [
+            "Ethereum",
+            "Hyperledger Fabric",
+            "Blockchain Development",
+            "Blockchain Security",
+            "Blockchain Platform",
+            "Java",
+            "C++",
+            "Python",
+            "JavaScript"
+        ],
+        "proposals": "5 to 10",
+        "posted_on": "2023-11-13T11:00:00.566334",
+        "country": "Czech Republic",
+        "budget": null,
+        "job_type": "Hourly: $30-$40",
+        "duration": "Less than 1 month, Less than 30 hrs/week",
+        "experience": "Expert",
+        "payment_verified": false,
+        "client_spendings": "0"
+    },
+    {
+        "title": "Rust library upgrade to the latest version including dependencies",
+        "suffix_link": "/jobs/Rust-library-upgrade-the-latest-version-including-dependencies_~0110171839bc7612ba/?referrer_url_path=find_work_home",
+        "description": "I want to upgrade this library https://github.com/StoriqaTeam/libstqbackend to the latest async/await rust and its dependencies without breaking the contract most possibly. if it breaks the contract it must to easy to upgrade dependent projects for example https://github.com/StoriqaTeam/delivery - upgrade the lib https://github.com/StoriqaTeam/libstqbackend with lasted async/await instead of Futures - each module must be updated with the latest dependencies - the functionalities of the original function must not change and if it will change it should not disrupt significantly how it is being consumed in the delivery microservice (i.e. https://github.com/StoriqaTeam/delivery) or https://github.com/StoriqaTeam/stores and so on there.",
+        "skills": [
+            "Rust",
+            "Rust programming"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T06:00:00.568018",
+        "country": "United Kingdom",
+        "budget": null,
+        "job_type": "Hourly: $10-$15",
+        "duration": "Less than 1 month, not_sure",
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "4000.0"
+    },
+    {
+        "title": "Spinning gift",
+        "suffix_link": "/jobs/Spinning-gift_~0180646eeab991ae48/?referrer_url_path=find_work_home",
+        "description": "I'm seeking a developer to design an interactive spin page feature(or any other attractive idea other than spinner). Users can add friends who are already connected on the platform. The creator will set a specific price range and event name. Upon clicking \"create,\" the spin page(or any other attractive idea other than spinner) will randomly assign the specified price to each friend. Subsequently, every friend will be notified with their assigned price and the event's name. I have already implemented other aspects of the app but I want this extra feature to be available",
+        "skills": [
+            "Firebase Cloud Firestore",
+            "Web Development",
+            "Flutter",
+            "NoSQL Database"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T12:00:00.569791",
+        "country": "Saudi Arabia",
+        "budget": "15",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "22"
+    },
+    {
+        "title": "Data Crawler in Node. js Crawlee Library",
+        "suffix_link": "/jobs/Data-Crawler-Node-Crawlee-Library_~01d294c3d1c2e3319f/?referrer_url_path=find_work_home",
+        "description": "Hello, We would like to create a crawler bot in Node. js Crawlee Library that will go and fetch some itineraries per day during a date range. You can see the specifications bellow: https://docs.google.com/document/d/1tH4e_Gnr7pwb6TiiNDnoje6ybeD6ljMp/edit + https://docs.google.com/spreadsheets/d/125un12J_ZiSqd4ofcjtKs-XLQpnohD3P/edit?usp=sharing&ouid=101898978416976908851&rtpof=true&sd=true We want to use our proxy plan. Kindly note that we want to use as less bandwidth as we can. Once you finish this project on your server and provide the demo url for testing, you will have to provide us with instructions on how we can host this bot in our server. Otherwise you can work directly from the beginning on our Server using Gitlab",
+        "skills": [
+            "Node.js",
+            "API"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T05:00:00.571354",
+        "country": "Bulgaria",
+        "budget": "150",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "10000.0"
+    },
+    {
+        "title": "Reverse engineer Pozionapp.com API and setup own API",
+        "suffix_link": "/jobs/Reverse-engineer-Pozionapp-com-API-and-setup-own-API_~019579d22bf38900ef/?referrer_url_path=find_work_home",
+        "description": "Hello! I need to get set of API requests to search and get data from https://www.poizonapp.com/ - this is US version of poizon app. I'm no-code developer and can't understand some things so I need to help with describing how I can fetch data from there OR setup own backend layer for this API if it can't be done with cloud functions. Please, tell me if you can consult on this question or make a backend and how long it will take - thanks! Details: They use MD5 hash sign in requests. You can find this link useful (I suppose it is for Chinese version of this app) - https://github.com/Locusc/dewu-api/blob/master/dewu/blueprints/api/du_api_blueprint.py List of needed requests: https://www.poizonapp.com/_next/data/jzo8tIgfvT3k2XGhidm0X/search.json - search with keywords https://www.poizonapp.com/api/v1/h5/bigger/intl/spu-search/spu/list - list from search https://www.poizonapp.com/bff/api/v1/price/sku?id=52379660 - price details for sku by spuId https://www.poizonapp.com/api/v1/h5/bigger/intl/commodity/get-index-spu-detail - product details by spuId",
+        "skills": [
+            "API",
+            "API Development",
+            "JavaScript"
+        ],
+        "proposals": "10 to 15",
+        "posted_on": "2023-11-13T04:00:00.573242",
+        "country": "Georgia",
+        "budget": null,
+        "job_type": "Hourly: $15-$50",
+        "duration": "Less than 1 month, Less than 30 hrs/week",
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "100"
+    },
+    {
+        "title": "Edit HTML page and make it work in Docker",
+        "suffix_link": "/jobs/Edit-HTML-page-and-make-work-Docker_~01b5a1076821e3436a/?referrer_url_path=find_work_home",
+        "description": "Hi there I have 1 HTML page, that was saved from the exisitng website template, that looks like this: https://usepapel.framer.website/ I have local saved version of this page and I need to clean/chage some areas + make it work in docker cotainer (add Dockerfile) What need to be done: 1) Clean code from all external unnecessary (not requred to work) scripts 2) Assets that need to make page work make sure all saved and served locally (if some not move it to local folder) 3) Make changes to page code(remove elemets and change text) so that it look like this: https://miro.com/app/board/uXjVNQpq4WY=/?share_link_id=572663253093 4) Add Dockerfile so that it can be deployed on server",
+        "skills": [
+            "Docker",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "HTML5"
+        ],
+        "proposals": "15 to 20",
+        "posted_on": "2023-11-12T17:00:00.574524",
+        "country": "Malta",
+        "budget": "30",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "10000.0"
+    },
+    {
+        "title": "Dapp needs Fixing",
+        "suffix_link": "/jobs/Dapp-needs-Fixing_~014c10eae1fe3227f3/?referrer_url_path=find_work_home",
+        "description": "Hello, For some reason the timer and data shown on this frontend randomly stopped working last night. I am assuming it\u2019s an RPC issue but tried changing that and nothing happened. Need someone to figure it out and fix it. I will provide the files. Frontend live: https://tradehub.ai",
+        "skills": [
+            "TypeScript",
+            "Web Development",
+            "NFT",
+            "Blockchain",
+            "Cryptocurrency"
+        ],
+        "proposals": "20 to 50",
+        "posted_on": "2023-11-13T12:00:00.575686",
+        "country": "United States",
+        "budget": "250",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "100000.0"
+    },
+    {
+        "title": "Full Stack Web Developer | MERN , Tailwind & Zendesk API",
+        "suffix_link": "/jobs/Full-Stack-Web-Developer-MERN-Tailwind-Zendesk-API_~013c6cc7c874defd95/?referrer_url_path=find_work_home",
+        "description": "Seeking a Full Stack Developer for a one-month project starting on September 19th. Skills required: React, Node.js, Tailwind, Google Analytics, and basic DevOps. The commitment is 2-4 hours daily.",
+        "skills": [
+            "API Integration",
+            "JavaScript",
+            "API Development",
+            "Node.js",
+            "Web Development",
+            "API",
+            "React",
+            "CSS",
+            "HTML",
+            "Web Application"
+        ],
+        "proposals": "5 to 10",
+        "posted_on": "2023-11-13T06:00:00.576850",
+        "country": "India",
+        "budget": "300",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "200"
+    },
+    {
+        "title": "Github Webpage Development and Editing",
+        "suffix_link": "/jobs/Github-Webpage-Development-and-Editing_~010796a2759d761ee3/?referrer_url_path=find_work_home",
+        "description": "I am looking for (fast) help in deploying a Github webpage. I have written the website, but I am having difficulties in deploying it, to have it online. Also, some editing of the work would be ideal. I'm using this template https://github.com/alshedivat/al-folio I would like to change the default color from purple to blue or green; we can discuss the options and perhaps if possible center the text in the front page with the image. The main priority is to send the website live, perhaps resolving some issues in the pushing the file to git, and then the editing in second order of priority. I can provide a link to my repository. Relevant skills: - HTML - CSS - JavaScript - Git - Github",
+        "skills": [
+            "Web Development",
+            "CSS",
+            "Web Design",
+            "HTML",
+            "JavaScript"
+        ],
+        "proposals": "15 to 20",
+        "posted_on": "2023-11-13T11:00:00.578141",
+        "country": "United Kingdom",
+        "budget": null,
+        "job_type": "Hourly: $15-$30",
+        "duration": "Less than 1 month, not_sure",
+        "experience": "Expert",
+        "payment_verified": false,
+        "client_spendings": "0"
+    },
+    {
+        "title": "Django python user account recovery",
+        "suffix_link": "/jobs/Django-python-user-account-recovery_~01f20a5b15ea3b907a/?referrer_url_path=find_work_home",
+        "description": "This task involves implementing a password recovery system in Django using REST APIs. It encompasses setting up a mechanism for users to reset lost passwords, creating API endpoints for requesting and executing password resets. Security measures are vital, ensuring safe management of reset tokens or links and authenticating users solely for their account's password recovery. Rigorous testing validates the system's reliability and security. Comprehensive documentation guides users through the recovery process. Seamless integration with the existing application is crucial for deployment, demanding expertise in Django, Django Rest Framework, security practices, and API development to ensure a secure and user-friendly password recovery solution.",
+        "skills": [
+            "Python",
+            "Django",
+            "Amazon Web Services",
+            "API",
+            "Database",
+            "RESTful API",
+            "Web Development",
+            "JavaScript",
+            "NGINX"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T06:00:00.579387",
+        "country": "Pakistan",
+        "budget": "50",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "200"
+    },
+    {
+        "title": "Build Custom OPNsense",
+        "suffix_link": "/jobs/Build-Custom-OPNsense_~016023bb71fbf3c0de/?referrer_url_path=find_work_home",
+        "description": "I need to Build Customized OPNsense. all sources are available in github",
+        "skills": [
+            "PHP",
+            "Unix Shell",
+            "Unix",
+            "Make Build Script"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T09:00:00.580514",
+        "country": "India",
+        "budget": "200",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "200"
+    },
+    {
+        "title": "N8N Node Developer",
+        "suffix_link": "/jobs/N8N-Node-Developer_~01f40d970f09c53c0b/?referrer_url_path=find_work_home",
+        "description": "Hi, I'm searching for an N8N developer to build an n8n as an intermediary between Cloudflare Workers (using the fetch API) and Duo Circle's MX record ( MX records: a498694.mx.mailhop.org, TCP port no. 10025). Visit the gist link, snippet code, and screenshot images, at https://gist.github.com/DevCEDTeam/d7c158a4881af973640c2d990b60a42d Watch the following YouTube Video, https://youtu.be/q4KUTgiglvE?si=ZcoDBioex0FUlGMw&t=61 Are you available for an Upwork Zoom call? Regards, Hal DevCED Team",
+        "skills": [
+            "PostgreSQL",
+            "Business with 1-9 Employees",
+            "N8N",
+            "API Development",
+            "MX Email"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T01:00:00.581714",
+        "country": "United States",
+        "budget": "60",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "10000.0"
+    },
+    {
+        "title": "Create Python App to Interact with Google Ads API",
+        "suffix_link": "/jobs/Create-Python-App-Interact-with-Google-Ads-API_~010fd0725b991d5472/?referrer_url_path=find_work_home",
+        "description": "I want to be able to upload massive amounts of ads, ad groups, campaigns, ect to Google Ads via a CSV. However, Google Ads has limits that make this hard. So I want to be able to upload a CSV, and then this app will upload that to Google Ads. It will first check to see if an item already exists. If it does, update it. If it doesn't add it. We will need to have uploads for campaigns, locations, ads, keywords, and negative keywords.",
+        "skills": [
+            "Python",
+            "Google APIs",
+            "API Integration"
+        ],
+        "proposals": "15 to 20",
+        "posted_on": "2023-11-13T12:00:00.582856",
+        "country": "United States",
+        "budget": "1500",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "3000.0"
+    },
+    {
+        "title": "Seeking Expert to Integrate KYC API with Proxy Settings",
+        "suffix_link": "/jobs/Seeking-Expert-Integrate-KYC-API-with-Proxy-Settings_~017b32935e7443fcb7/?referrer_url_path=find_work_home",
+        "description": "Hello, We are in search of a skilled individual who can assist us in creating a link from our website and seamlessly integrate it with a KYC (Know Your Customer) API, all while ensuring that proxy settings are optimized for a secure and efficient connection. We look forward to reviewing your proposals. Thank you for your interest!",
+        "skills": [
+            "Web Development",
+            "WordPress",
+            "API Integration"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T10:00:00.583958",
+        "country": "Hong Kong",
+        "budget": "20",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "1000.0"
+    },
+    {
+        "title": "NodeJS (NestJS), C++, Linux, Bash Scripting",
+        "suffix_link": "/jobs/NodeJS-NestJS-Linux-Bash-Scripting_~01ee7fd006ff2889a3/?referrer_url_path=find_work_home",
+        "description": "We need a software developer to join our team with these skills - NodeJS with NestJS framework (EXPERT) - C++, WebSockets - Linux experienced user - Bash scripting in linux - Knowledge of TS Duck framework or MPEG TS (MPEG transport stream in DVB) is a huge plus Must be great at communication, fast iterations, team-player. The job will involve API (NestJS) and back-end programming (C++, websockets, bash scripting). If you would like to know more about this project, please have a look at: https://maindatainc.com/sfn-boost/ Chosen candidates will be asked to complete a simple Test Task that will test your capabilities to adjust to new framework.",
+        "skills": [
+            "C++",
+            "Linux",
+            "API",
+            "Bash Programming",
+            "Node.js"
+        ],
+        "proposals": "20 to 50",
+        "posted_on": "2023-11-13T11:00:00.585157",
+        "country": "Slovakia",
+        "budget": null,
+        "job_type": "Hourly: $15-$25",
+        "duration": "3 to 6 months, 30+ hrs/week",
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "3000.0"
+    },
+    {
+        "title": "ChatGPT bot on internal content of website to create a chat/reference/question bot",
+        "suffix_link": "/jobs/ChatGPT-bot-internal-content-website-create-chat-reference-question-bot_~01b7355dcad4f4495d/?referrer_url_path=find_work_home",
+        "description": "We run website and have a lot of content on our newsfeed (behind a paywall) I am looking for someone to create a proof of concept ChatGPT bot that will access our newsfeed, and answer relevant questions based on the data within it. This data can also be provided via a json/rss API",
+        "skills": [
+            "ChatGPT",
+            "ChatGPT API Integration"
+        ],
+        "proposals": "15 to 20",
+        "posted_on": "2023-11-13T12:00:00.586280",
+        "country": "United Kingdom",
+        "budget": null,
+        "job_type": "Hourly",
+        "duration": "Less than 1 month, Less than 30 hrs/week",
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "1000.0"
+    },
+    {
+        "title": "Enable team collaboration while using grapejs in frontend development",
+        "suffix_link": "/jobs/Enable-team-collaboration-while-using-grapejs-frontend-development_~016db97a325a6a606e/?referrer_url_path=find_work_home",
+        "description": "We are using grapejs with our reactjs application for frontend building. We need to enable multiple users to work at the same time and have enhanced team work experience. For reference you can refer to figma or google docs.",
+        "skills": [
+            "Java",
+            "Database Architecture",
+            "Software Architecture & Design",
+            "Node.js"
+        ],
+        "proposals": "5 to 10",
+        "posted_on": "2023-11-13T04:00:00.587386",
+        "country": "India",
+        "budget": "1000",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "6000.0"
+    },
+    {
+        "title": "Telegram bot to share tweets, reply, RT and likes by a specific user",
+        "suffix_link": "/jobs/Telegram-bot-share-tweets-reply-and-likes-specific-user_~01322b0bcd9dbfded8/?referrer_url_path=find_work_home",
+        "description": "Hello, I would need a telegram bot that shares messages/notifications in a telegram channel when a specific twitter users does the following : - tweets - replies to a tweet - retweet - likes a tweet ( so share what he likes) Regarding the format, What we could do when tweets for formatting : Watching exchanges entering the stonks arena https://t.co/CX3fg9wq8E (thumbnails included) \u2014 (@Elon Musk) What we could do when replies for formatting : REPLY @Gates This just means we are so early. \u2014 (@ElonMusk) What we could do when RT for formatting : RT @Gates this is just the beginning. \u2014 (@ElonMusk) What we could do when LIKES for formatting : LIKE @Gates this is just the beginning. \u2014 (@ElonMusk) Thank you very much!",
+        "skills": [
+            "API Integration",
+            "Telegram API",
+            "Bot Development",
+            "Python",
+            "Twitter API"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T07:00:00.588532",
+        "country": "Romania",
+        "budget": "70",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "88"
+    },
+    {
+        "title": "Ghost CMS developer",
+        "suffix_link": "/jobs/Ghost-CMS-developer_~01c9a23bf047ed4452/?referrer_url_path=find_work_home",
+        "description": "We are seeking a talented and experienced Ghost CMS developer to join our team. As a Ghost CMS Developer, you will be responsible for designing, developing, and maintaining our website on the Ghost platform. The ideal candidate should have a strong background in web development, expertise in Ghost CMS, and a keen eye for design. Responsibilities: Design and implement custom themes for Ghost CMS based on project requirements. Develop and maintain plugins to enhance website functionality. Ensure the website is responsive, optimized for performance, and follows best practices in web development. Collaborate with the design team to implement creative and visually appealing solutions. Troubleshoot and resolve issues related to Ghost CMS and website functionality. Stay up-to-date with the latest trends and developments in Ghost CMS and web development.",
+        "skills": [
+            "JavaScript",
+            "CSS",
+            "Tailwind CSS",
+            "Ghost CMS"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T04:00:00.589664",
+        "country": "Armenia",
+        "budget": null,
+        "job_type": "Hourly: $9-$11",
+        "duration": "Less than 1 month, Less than 30 hrs/week",
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "4000.0"
+    },
+    {
+        "title": "Remove branding and add additional features to AppSmith open source",
+        "suffix_link": "/jobs/Remove-branding-and-add-additional-features-AppSmith-open-source_~0165563d63958aed3d/?referrer_url_path=find_work_home",
+        "description": "Hi all We need someone to help us with our open source deployment. We cannot afford the fees Appsmith charges do we would like to make some edits to the open source version. 1. Remove all branding 2. Change the email templates (hardcoded) Thanks",
+        "skills": [
+            "Web Development",
+            "JavaScript",
+            "CSS"
+        ],
+        "proposals": "5 to 10",
+        "posted_on": "2023-11-12T17:00:00.590757",
+        "country": "Slovakia",
+        "budget": "50",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "2000.0"
+    },
+    {
+        "title": "Rust library upgrade to the latest version including dependencies",
+        "suffix_link": "/jobs/Rust-library-upgrade-the-latest-version-including-dependencies_~01375354dacc179aa4/?referrer_url_path=find_work_home",
+        "description": "I want to upgrade this library https://github.com/StoriqaTeam/libstqbackend to the latest async/await rust and its dependencies without breaking the contract most possibly. if it breaks the contract it must to easy to upgrade dependent projects for example https://github.com/StoriqaTeam/delivery - upgrade the lib https://github.com/StoriqaTeam/libstqbackend with lasted async/await instead of Futures - each module must be updated with the latest dependencies - the functionalities of the original function must not change and if it will change it should not disrupt significantly how it is being consumed in the delivery microservice (i.e. https://github.com/StoriqaTeam/delivery) or https://github.com/StoriqaTeam/stores and so on there.",
+        "skills": [
+            "Rust",
+            "Rust programming"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T03:00:00.591980",
+        "country": "United Kingdom",
+        "budget": null,
+        "job_type": "Hourly: $10-$15",
+        "duration": "Less than 1 month, not_sure",
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "4000.0"
+    },
+    {
+        "title": "Seeking Freelance Full-Stack Developer for Innovative Recruitment Startup",
+        "suffix_link": "/jobs/Seeking-Freelance-Full-Stack-Developer-for-Innovative-Recruitment-Startup_~01951058afcb230919/?referrer_url_path=find_work_home",
+        "description": "About Us: We are a fast-growing startup focused on revolutionizing the recruitment industry. Our SaaS platform aims to streamline the recruitment process for both companies and candidates. Our vision is to \"Revolutionize the recruitment industry, one code at a time.\" As the sole freelance Full-Stack Developer on the team, you'll be at the heart of our tech operations. Your mission is to develop, maintain, and innovate our SaaS platform and internal tools, creating a seamless recruitment process for companies and candidates alike. You will be responsible for two main projects: - Our internal software built on Retool, where your role includes adding new features, optimizing current processes, and ensuring data integrity. - Our upcoming platform designed on WeWeb, where you will play a critical role from concept to launch. Values important to us include creativity, essential for problem-solving and innovation, and flexibility, embodying the ability to adjust swiftly in response to changing conditions or new information. Desired Skills: Strong knowledge in Frontend technologies (VueJS) Proficiency in Backend languages (Python, Node.js) Database Management (PostgreSQL) Experience with Retool Agile methodologies Daily tasks include: Developing new features for the internal software Working on sprint tasks for the upcoming platform Monitoring and optimizing database performance Stand-up meetings to sync with the team Other Specifications: Location: Remote Minimum 1-year commitment To apply, please provide your profile as per this template: JS / Frontend: Python / Backend: Have you ever worked alone: Agile experience: DB management: Retool: How many projects? Country/Timezone: Monthly salary expectation Please use the world GOLD at the beginning of your message to make sure that you read, if you didn't I won't reply !",
+        "skills": [
+            "Python",
+            "JavaScript",
+            "Web Development",
+            "React",
+            "Node.js",
+            "Database Architecture"
+        ],
+        "proposals": "15 to 20",
+        "posted_on": "2023-11-13T10:00:00.593217",
+        "country": "France",
+        "budget": null,
+        "job_type": "Hourly: $25-$50",
+        "duration": "More than 6 months, 30+ hrs/week",
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "2000.0"
+    },
+    {
+        "title": "SHG / Python Software (REST API, JSON FILES, MQTT CLIENT)",
+        "suffix_link": "/jobs/SHG-Python-Software-REST-API-JSON-FILES-MQTT-CLIENT_~010f27ae249c10f63b/?referrer_url_path=find_work_home",
+        "description": "The Python software in subject needs to implement a REST API server to expose some HTTP endpoints that will be called by a third-party software, and it needs to implement an MQTT client which will connect to an MQTT broker to subscribe and publish on certain topics. The third-party mentioned software is NOT included to this job. We will immediately provide the API documentation for both synchronous calls (HTTP REST API) and asynchronous (MQTT) messages. HTTP REST API are documented with Swagger. MQTT messages are documented with AsyncAPI. Required skills: \u2022 GIT (GitLab) \u2022 Python REST API server development \u2022 Python MQTT subscribing/publishing \u2022 JSON file management \u2022 Basic network skills to programmatically perform speed test and trace route. Attachments: - Job Description - Sync (HTTP) / Async (MQTT) API Docs preview - Milestones list with definitive budgets",
+        "skills": [
+            "Python",
+            "RESTful API",
+            "JSON",
+            "API Development",
+            "MQTT"
+        ],
+        "proposals": "20 to 50",
+        "posted_on": "2023-11-13T12:00:00.594384",
+        "country": "Italy",
+        "budget": "1800",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "40000.0"
+    },
+    {
+        "title": "Python backend developer (entry level)",
+        "suffix_link": "/jobs/Python-backend-developer-entry-level_~013db70a34a3a77bee/?referrer_url_path=find_work_home",
+        "description": "Our marketing agency is seeking a Python backend developer to assist with freelance tasks such as API integrations, automating workflows using Python scripts etc. Some of the software we are working with (no need for prior experience as long as you can learn things quickly as you go): - Airtable - Google BigQuery - Flask - GPT This is expected to be a part-time role (10-20 hours/week max) and it could be a good long-term role for the right freelancer Thanks for applying!",
+        "skills": [
+            "Python",
+            "API"
+        ],
+        "proposals": "10 to 15",
+        "posted_on": "2023-11-13T12:00:00.595506",
+        "country": "Canada",
+        "budget": null,
+        "job_type": "Hourly: $7",
+        "duration": "1 to 3 months, 30+ hrs/week",
+        "experience": "Entry level",
+        "payment_verified": true,
+        "client_spendings": "30000.0"
+    },
+    {
+        "title": "Full Stack Development Node.js and Vue.Js MySQL",
+        "suffix_link": "/jobs/Full-Stack-Development-Node-and-Vue-MySQL_~0104b78a4cf4b4b4c4/?referrer_url_path=find_work_home",
+        "description": "I need someone to make some quick updates to my web app, coded in Node.js, vue.js and MySQL. Everything is hosted on Gitlab. I will give you the url of the web app when we discuss by messages. Right now, what I need is the following: - Upload the latest commit I created on Gitlab with new French Translations - Add translation for the auth/ login process (I will give you the translations beforehand) - Add code to show the web app in French by default when computer/browser is in French (I've already added the code to a commit but I would need you to check/update it if needed) - Delete the name of the background images next to the checkbox in the settings. - Record a video showing step by step how you compile the files/create the new build and upload the files to ftp (no CI/CD available to connect to my GoDaddy hosting) More work to come after this. Please contact me only if you answered the screening questions/read this until the end.",
+        "skills": [
+            "GitLab",
+            "Web Application",
+            "Vue.js",
+            "Node.js",
+            "DevOps"
+        ],
+        "proposals": "50+",
+        "posted_on": "2023-11-13T12:00:00.596653",
+        "country": "United States",
+        "budget": null,
+        "job_type": "Hourly: $10-$25",
+        "duration": "Less than 1 month, Less than 30 hrs/week",
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "7000.0"
+    },
+    {
+        "title": "Telegram bot",
+        "suffix_link": "/jobs/Telegram-bot_~010d35b6f2c1a33712/?referrer_url_path=find_work_home",
+        "description": "I need to create telegram bot using 1 of the libraries I provide, depending on your tech stack it could be node.js or python. We need to create 2 tables with Users and Messages where save user data and interactions. Bot will have 3 commands and need to make requests to chatgpt api https://github.com/openai/openai-cookbook Detailed description will be shared with selected freelancer before starting project. This is quick project that guarantee you 5 stars and possibility of full time work if done correctly. Please apply only if you are available to work on this in next 3 days, we want to finish it as soon as possible.",
+        "skills": [
+            "Telegram API"
+        ],
+        "proposals": "10 to 15",
+        "posted_on": "2023-11-13T04:00:00.597780",
+        "country": "Singapore",
+        "budget": "200",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Intermediate",
+        "payment_verified": true,
+        "client_spendings": "100000.0"
+    },
+    {
+        "title": "Experienced Go Lang & JavaScript developer for data mapping and user management system",
+        "suffix_link": "/jobs/Experienced-Lang-JavaScript-developer-for-data-mapping-and-user-management-system_~018bc513a53c616400/?referrer_url_path=find_work_home",
+        "description": "Our company is presently seeking a proficient Go lang developer with substantial front-end JavaScript expertise to contribute to the advancement of our file management system. The appointed candidate will be tasked with some of the following responsibilities: * Enhancement of our user management system * Designing and creating intricate rule-based and mapping systems for file operation workflows Prospective applicants should possess the following qualifications: * Extensive experience in Go language development, specifically in back-end development (MySQL, API) * A considerable period of practical experience in front-end JavaScript development This opportunity has the potential to evolve into a continuous contractual engagement or a permanent role within our company.",
+        "skills": [
+            "Golang",
+            "JavaScript"
+        ],
+        "proposals": "20 to 50",
+        "posted_on": "2023-11-13T13:10:00.599181",
+        "country": "United States",
+        "budget": null,
+        "job_type": "Hourly: $45-$60",
+        "duration": "1 to 3 months, 30+ hrs/week",
+        "experience": "Expert",
+        "payment_verified": true,
+        "client_spendings": "20000.0"
+    },
+    {
+        "title": "Webpage Verification Bypass Assistant",
+        "suffix_link": "/jobs/Webpage-Verification-Bypass-Assistant_~016d472a9092c1e72c/?referrer_url_path=find_work_home",
+        "description": "We are looking for a skilled assistant who can help bypass webpages for verification purposes. The main responsibilities include finding and implementing methods to bypass verification processes on websites. The ideal candidate should have experience in web development and be familiar with various programming languages. The ability to analyze and understand website structures is essential. Additionally, they should have knowledge of HTML, CSS, JavaScript, and other relevant technologies. Attention to detail and problem-solving skills are crucial in this role. Relevant skills: - Web development - Programming languages - HTML, CSS, JavaScript - Analytical skills - Problem-solving",
+        "skills": [
+            "WordPress",
+            "Data Scraping",
+            "JavaScript",
+            "Web Development"
+        ],
+        "proposals": "Less than 5",
+        "posted_on": "2023-11-13T12:00:00.600552",
+        "country": "Kenya",
+        "budget": "10",
+        "job_type": "Fixed-price",
+        "duration": null,
+        "experience": "Intermediate",
+        "payment_verified": false,
+        "client_spendings": "0"
+    }
+]

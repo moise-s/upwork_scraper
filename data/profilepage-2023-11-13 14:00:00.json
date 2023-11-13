@@ -1,0 +1,37 @@
+{
+    "account_session": {
+        "full_name": "Dave Worker",
+        "first_name": "Dave",
+        "last_name": "Worker",
+        "id": "1941e405",
+        "masked_email": "r******sk@argyle.com"
+    },
+    "location_session": {
+        "line_1": "Wilhelminastraat 128",
+        "line_2": "12",
+        "city": "Amsterdam",
+        "state": "NH",
+        "postal_code": null,
+        "country": "NL",
+        "phone_number": "+31621466631"
+    },
+    "profile_page": {
+        "job_title": "Software engineer",
+        "hourly_rate": "70.00",
+        "description": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "skills": [
+            "Google Closure",
+            "Spock"
+        ],
+        "employment_history": [
+            {
+                "title": "Software Engineer | Argyle",
+                "period": "January 2020 - Present"
+            },
+            {
+                "title": "Software Engineer | Upwork",
+                "period": "January 2017 - January 2018"
+            }
+        ]
+    }
+}
