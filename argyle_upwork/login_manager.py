@@ -1,5 +1,7 @@
 """A module for handling login."""
 
+from retry import retry
+
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
 
@@ -11,6 +13,7 @@ class LoginHandler(DriverManager):
         """Initialize the LoginHandler with Chromedriver."""
         super().__init__(driver)
 
+    @retry(exceptions=Exception, tries=3, delay=2, backoff=2)
     def login(self) -> None:
         """Perform the login process."""
         self.driver.go_to_url(self.driver.login_url)

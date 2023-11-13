@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Optional, Union
 
 from bs4 import BeautifulSoup, NavigableString, Tag
+from retry import retry
 
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
@@ -26,6 +27,7 @@ class ProfileScanner(DriverManager):
         self.profile_section: ProfilePage
         self.profile: Profile
 
+    @retry(exceptions=Exception, tries=3, delay=2, backoff=2)
     def scan_profile(self) -> None:
         """Scan the Upwork Profile page."""
         self._scan_contact_info_page()

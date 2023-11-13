@@ -3,7 +3,7 @@
 import os
 import re
 from typing import Any
-
+from retry import retry
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.service import Service
@@ -31,6 +31,7 @@ class ChromeDriver:
             "https://www.upwork.com/freelancers/settings/contactInfo"
         )
 
+    @retry(exceptions=Exception, tries=3, delay=2)
     def _create_driver(self) -> webdriver.Chrome:
         """Create a new instance of the Chrome webdriver with the specified options."""
         options = webdriver.ChromeOptions()

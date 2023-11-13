@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 
 from bs4 import BeautifulSoup
+from retry import retry
 
 from argyle_upwork.driver import ChromeDriver, DriverManager
 from argyle_upwork.logger import logger
@@ -20,6 +21,7 @@ class HomepageScanner(DriverManager):
         self.job_sections: list[dict] = []
         self.datetime_now: str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+    @retry(exceptions=Exception, tries=3, delay=2, backoff=2)
     def scan_homepage(self) -> None:
         """Scan the Upwork homepage for job sections."""
         if not self._is_at_homepage():
