@@ -2,8 +2,8 @@
 
 from retry import retry
 
-from argyle_upwork.driver import ChromeDriver, DriverManager
-from argyle_upwork.logger import logger
+from upwork_scraper.driver import ChromeDriver, DriverManager
+from upwork_scraper.logger import logger
 
 
 class LoginHandler(DriverManager):

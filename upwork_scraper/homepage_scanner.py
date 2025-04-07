@@ -7,9 +7,9 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 from retry import retry
 
-from argyle_upwork.driver import ChromeDriver, DriverManager
-from argyle_upwork.logger import logger
-from argyle_upwork.models.job import JobSection
+from upwork_scraper.driver import ChromeDriver, DriverManager
+from upwork_scraper.logger import logger
+from upwork_scraper.models.job import JobSection
 
 
 class HomepageScanner(DriverManager):

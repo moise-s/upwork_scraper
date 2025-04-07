@@ -2,11 +2,11 @@
 
 from dotenv import load_dotenv
 
-from argyle_upwork.driver import ChromeDriver
-from argyle_upwork.homepage_scanner import HomepageScanner
-from argyle_upwork.logger import logger
-from argyle_upwork.login_manager import LoginHandler
-from argyle_upwork.profile_scanner import ProfileScanner
+from upwork_scraper.driver import ChromeDriver
+from upwork_scraper.homepage_scanner import HomepageScanner
+from upwork_scraper.logger import logger
+from upwork_scraper.login_manager import LoginHandler
+from upwork_scraper.profile_scanner import ProfileScanner
 
 
 def handler():
