@@ -1,7 +1,7 @@
 <div align="center">
 <h1 align="center">
-<br>argyle-upwork</h1>
-<h3>◦ A Web Scanner for Upwork website.</h3>
+<br>Upwork Scraper</h1>
+<h3>◦ A Web Scraper for Upwork website.</h3>
 <h4>Developed with following tools:</h4>
 <p align="center">
 <img src="https://img.shields.io/badge/Poetry-60A5FA.svg?style=flat-square&logo=Poetry&logoColor=white" alt="Poetry" />
@@ -9,16 +9,13 @@
 <img src="https://img.shields.io/badge/Python-3776AB.svg?style=flat-square&logo=Python&logoColor=white" alt="Python" />
 <img src="https://img.shields.io/badge/Docker-2496ED.svg?style=flat-square&logo=Docker&logoColor=white" alt="Docker" />
 <p>
-<img src="https://camo.githubusercontent.com/d91ed7ac7abbd5a6102cbe988dd8e9ac21bde0a73d97be7603b891ad08ce3479/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64652532307374796c652d626c61636b2d3030303030302e737667" alt="Code style: black" data-canonical-src="https://img.shields.io/badge/code%20style-black-000000.svg" style="max-width: 100%;">
-<img src="https://camo.githubusercontent.com/59eab954a267c6e9ff1d80e8055de43a0ad771f5e1f3779aef99d111f20bee40/687474703a2f2f7777772e6d7970792d6c616e672e6f72672f7374617469632f6d7970795f62616467652e737667" alt="Type checked with mypy" data-canonical-src="http://www.mypy-lang.org/static/mypy_badge.svg" style="max-width: 100%;">
-<img src="https://camo.githubusercontent.com/fe4a658dd745f746410f961ae45d44355db1cc0e4c09c7877d265c1380248943/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f253230696d706f7274732d69736f72742d2532333136373462313f7374796c653d666c6174266c6162656c436f6c6f723d656638333336" alt="Imports: isort" data-canonical-src="https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&amp;labelColor=ef8336" style="max-width: 100%;">
 </div>
 
 ---
 
 ## 📍 Overview
 
-The Argyle - Upwork project is a web scanning tool designed for extracting Job and Profile information from Upwork's website.
+The Upwork Scraper project is a web scanning tool designed for extracting Job and Profile information from Upwork's website.
 
 ---
 
@@ -36,9 +33,9 @@ The `homepage_scanner` module scans the Upwork homepage for job sections. It emp
 
 The `profile_scanner` module is responsible for scanning Upwork profile pages. It collects comprehensive data from both the profile and contact info pages, including employment history.
 
-### 4. Data Models (`argyle_upwork.models`)
+### 4. Data Models (`upwork_scraper.models`)
 
-The `argyle_upwork.models` package contains Pydantic models for representing job sections (`JobSection`) and profile information (`ProfilePage`, `AccountSection`, `LocationSection`, `Profile`). These models include validation and cleaning methods for data consistency.
+The `upwork_scraper.models` package contains Pydantic models for representing job sections (`JobSection`) and profile information (`ProfilePage`, `AccountSection`, `LocationSection`, `Profile`). These models include validation and cleaning methods for data consistency.
 
 ### 5. Data Storage Locally
 
@@ -49,7 +46,7 @@ Both job and profile data are stored locally in JSON format after validation. Th
 
 ### 6. Tests
 
-The `argyle_upwork.tests` package includes tests designed to assert the functionality of crucial driver and model components. These tests ensure the proper evaluation of key functions, covering areas such as driver behavior, model validation, and overall project integrity.
+The `upwork_scraper.tests` package includes tests designed to assert the functionality of crucial driver and model components. These tests ensure the proper evaluation of key functions, covering areas such as driver behavior, model validation, and overall project integrity.
 
 ---
 
@@ -58,7 +55,7 @@ The `argyle_upwork.tests` package includes tests designed to assert the function
 
 ```sh
 └── argyle-upwork/
-    ├── argyle_upwork/
+    ├── upwork_scraper/
     │   ├── driver.py
     │   ├── homepage_scanner.py
     │   ├── logger.py
@@ -139,7 +136,7 @@ Create a `.env` file with the necessary environment variables (`ARGYLE_USERNAME`
 ### 🤖 Running argyle-upwork
 
 ```sh
-python argyle_upwork/main.py
+python upwork_scraper/main.py
 ```
 
 ## 🧪 Running Tests
@@ -147,7 +144,7 @@ python argyle_upwork/main.py
 To run the tests, execute the following command in the project directory:
 
 ```sh
-pytest argyle_upwork/tests
+pytest upwork_scraper/tests
 ```
 
 ---
