@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 
 ENV VIRTUAL_ENV=/.venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-ENV PYTHONPATH "${PYTHONPATH}:/argyle_upwork"
+ENV PYTHONPATH "${PYTHONPATH}:/upwork_scraper"
 
 RUN apt-get update && \
     apt-get install -y wget libu2f-udev p7zip-full libglib2.0-0 gnupg2 ca-certificates curl unzip && \
@@ -20,7 +20,7 @@ RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add
 
 
 COPY requirements.txt /
-COPY argyle_upwork /argyle_upwork
+COPY upwork_scraper /upwork_scraper
 
 RUN python -m venv $VIRTUAL_ENV && \
     python -m pip install --upgrade pip && \
@@ -28,4 +28,4 @@ RUN python -m venv $VIRTUAL_ENV && \
 
 ENV PATH=$PATH:/tmp/chromedriver
 
-CMD ["python", "argyle_upwork/main.py"]
+CMD ["python", "upwork_scraper/main.py"]

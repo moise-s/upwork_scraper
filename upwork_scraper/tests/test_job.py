@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-from argyle_upwork.models.job import (clean_numeric_string,
+from upwork_scraper.models.job import (clean_numeric_string,
                                       validate_client_spendings,
                                       validate_posted_on)
 

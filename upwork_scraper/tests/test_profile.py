@@ -1,7 +1,7 @@
 # tests/test_profile.py
 
 
-from argyle_upwork.models.profile import (clean_string,
+from upwork_scraper.models.profile import (clean_string,
                                           convert_empty_string_to_none,
                                           strip_whitespace)
 

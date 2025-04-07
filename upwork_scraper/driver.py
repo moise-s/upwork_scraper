@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
-from argyle_upwork.logger import logger
+from upwork_scraper.logger import logger
 
 
 class ChromeDriver:

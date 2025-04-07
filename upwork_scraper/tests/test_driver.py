@@ -6,7 +6,7 @@ from unittest.mock import Mock
 import pytest
 from selenium.webdriver.remote.webelement import WebElement
 
-from argyle_upwork.driver import ChromeDriver, DriverManager
+from upwork_scraper.driver import ChromeDriver, DriverManager
 
 
 @pytest.fixture
